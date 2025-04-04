@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Dropdown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu > li {
+            position: relative;
+        }
+
+        .menu > li > a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .menu > li:hover > a {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #444;
+            list-style: none;
+            padding: 10px 0;
+            min-width: 180px;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .submenu li {
+            padding: 10px;
+        }
+
+        .submenu li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px 15px;
+        }
+
+        .submenu li a:hover {
+            background: #666;
+        }
+
+        /* Show dropdown on hover */
+        .menu > li:hover .submenu {
+            display: block;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: #333;
+                width: 100%;
+                display: none;
+                padding: 10px 0;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu > li {
+                text-align: center;
+                width: 100%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .submenu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                text-align: center;
+                display: none;
+            }
+
+            .menu > li:hover .submenu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">My Logo</div>
+        <div class="menu-toggle">&#9776;</div>
+        <ul class="menu">
+            <li>
+                <a href="#">Option 1</a>
+                <ul class="submenu">
+                    <li><a href="#">Sub Option 1</a></li>
+                    <li><a href="#">Sub Option 2</a></li>
+                    <li><a href="#">Sub Option 3</a></li>
+                    <li><a href="#">Sub Option 4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Option 2</a>
+                <ul class="submenu">
+                    <li><a href="#">Sub Option 1</a></li>
+                    <li><a href="#">Sub Option 2</a></li>
+                    <li><a href="#">Sub Option 3</a></li>
+                    <li><a href="#">Sub Option 4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Option 3</a>
+                <ul class="submenu">
+                    <li><a href="#">Sub Option 1</a></li>
+                    <li><a href="#">Sub Option 2</a></li>
+                    <li><a href="#">Sub Option 3</a></li>
+                    <li><a href="#">Sub Option 4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Option 4</a>
+                <ul class="submenu">
+                    <li><a href="#">Sub Option 1</a></li>
+                    <li><a href="#">Sub Option 2</a></li>
+                    <li><a href="#">Sub Option 3</a></li>
+                    <li><a href="#">Sub Option 4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Option 5</a>
+                <ul class="submenu">
+                    <li><a href="#">Sub Option 1</a></li>
+                    <li><a href="#">Sub Option 2</a></li>
+                    <li><a href="#">Sub Option 3</a></li>
+                    <li><a href="#">Sub Option 4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
+
+</body>
+</html>
